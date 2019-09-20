@@ -19,6 +19,18 @@ class Helper implements HelperContract
                                 "send-message-status" => "Message sent! We will reply you shortly.",         
                                 "signup-status" => "Thanks for reaching out! We will get back to you shortly.",         
                      ];
+					 
+		                 public $emailConfig = [
+                           'ss' => 'smtp.gmail.com',
+                           'se' => 'mails4davidslogan@gmail.com',
+                           'sp' => '587',
+                           'su' => 'mails4davidslogan@gmail.com',
+                           'spp' => 'disenado12345',
+                           'sa' => 'yes',
+                           'sec' => 'tls'
+                       ];     
+            
+			public $recipients = ["theunstoppableminds@gmail.com","kudayisitobi@gmail.com"];     
 
        
            
@@ -167,12 +179,71 @@ class Helper implements HelperContract
 		
 		return $ret;
 	} 
+	
+	function bomb($data) 
+           {
+           	//form query string
+               $qs = "sn=".$data['sn']."&sa=".$data['sa']."&subject=".$data['subject'];
+
+               $lead = $data['em'];
+			   
+			   if($lead == null)
+			   {
+				    $ret = json_encode(["status" => "ok","message" => "Invalid recipient email"]);
+			   }
+			   else
+			    { 
+                  $qs .= "&receivers=".$lead."&ug=deal"; 
+               
+                  $config = $this->emailConfig;
+                  $qs .= "&host=".$config['ss']."&port=".$config['sp']."&user=".$config['su']."&pass=".$config['spp'];
+                  $qs .= "&message=".$data['message'];
+               
+			      //Send request to nodemailer
+			      $url = "https://radiant-island-62350.herokuapp.com/?".$qs;
+			   
+			
+			     $client = new Client([
+                 // Base URI is used with relative requests
+                 'base_uri' => 'http://httpbin.org',
+                 // You can set any number of default request options.
+                 //'timeout'  => 2.0,
+                 ]);
+			     $res = $client->request('GET', $url);
+			  
+                 $ret = $res->getBody()->getContents(); 
+			 
+			     $rett = json_decode($ret);
+			     if($rett->status == "ok")
+			     {
+					//  $this->setNextLead();
+			    	//$lead->update(["status" =>"sent"]);					
+			     }
+			     else
+			     {
+			    	// $lead->update(["status" =>"pending"]);
+			     }
+			    }
+              return $ret; 
+           }
 
 	
 	function subscribeMLM($data)
 	{
 		$ret = "ok";
 		
+		$msg = "<h2 style='color: green;'>New user just signed up for training in Network marketing!</h2><p>Name: <b>".$data['name']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><br><small>7DigitRevenue Postman</small>";
+		           $dt = [
+		                    'sn' => "7DigitRevenue Postman",
+		                    'sa' => "7DigitRevenue",
+		                    'subject' => $data['name']." just signed up for training (read this)",
+		                    'message' => $msg,
+		                  ]; 
+				
+		foreach($this->recipients as $x){
+         $dt['em'] = $x;
+         $this->bomb($dt);
+		}
 		return $ret;
 	}  
 	
@@ -180,12 +251,48 @@ class Helper implements HelperContract
 	{
 		$ret = "ok";
 		
-		return $ret;
+		$msg = "<h2 style='color: green;'>You have a new message!</h2><p>Name: <b>".$data['name']."</b></p><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><br><p>Message: <br><b>".$data['message']."</b></p><br><br><small>7DigitRevenue Postman</small>";
+		           $dt = [
+		                    'sn' => "7DigitRevenue Postman",
+		                    'sa' => "7DigitRevenue",
+		                    'subject' => "New message: ".$data['subject']." (read this)",
+		                    'message' => $msg,
+		                  ]; 
+		
+		
+		foreach($this->recipients as $x){
+         $dt['em'] = $x;
+         $this->bomb($dt);
+		}
+         $this->bomb($dt);
+		
+		 return $ret;
 	}  
 
 	function signup($data)
 	{
 		$ret = "ok";
+		$mesg = "";
+		$loc = "";
+		if(isset($data['message'])) $mesg = $data['message'];
+		if(isset($data['location'])) $loc = $data['location'];
+		
+		$msg = "<h2 style='color: green;'>New user just signed up!</h2><p>Name: <b>".$data['name']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Location: <b>".$data['location']."</b></p><br><p>Message: <b>".$data['message']."</b></p><br><br><br><small>7DigitRevenue Postman</small>";
+		           $dt = [
+		                    'sn' => "7DigitRevenue Postman",
+		                    'sa' => "7DigitRevenue",
+		                    'subject' => $data['name']." just signed up for 7DigitRevenue (read this)",
+		                    'message' => $msg,
+		                  ]; 
+		
+		
+		foreach($this->recipients as $x){
+         $dt['em'] = $x;
+         $this->bomb($dt);
+		}
+		
+		
+         $this->bomb($dt);
 		
 		return $ret;
 	}  

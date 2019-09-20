@@ -9,7 +9,7 @@
 						<div class="item">
 							<div class="mission_text">
 								<h4>How?</h4>
-								<p>Immeri Global is an ever growing community of like-minded individuals with the simple goal of INCREASING their REVENUE through Trending Business Systems.</p>
+								<p>7DigitRevenue and Immeri are ever growing with a community of like-minded individuals with the simple goal of INCREASING their REVENUE through Trending Business Systems.</p>
 							</div>
 							<div class="mission_text">
 								<h4>Build your Dream REVENUE</h4>

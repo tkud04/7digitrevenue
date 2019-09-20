@@ -119,7 +119,7 @@
                           <input name="location" class="form-control" placeholder="Location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Location'" type="text">
                        </div>
                        <div class="input-group">
-                          <textarea name="message" class="form-control" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mesaage '" required=""></textarea>
+                          <textarea name="message" class="form-control" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mesaage '" ></textarea>
                        </div>
                        <div class="mt-10 info"></div>
                     
@@ -142,7 +142,7 @@
                         <div class="single-footer-widget">
                             <h6 class="footer_title">About Immeri</h6>
                             <p>
-                            	Immeri Global is an ever growing community of like-minded individuals with the simple goal of INCREASING their REVENUE through Trending Business Systems.<br><br>
+                            	7DigitRevenue and Immeri are ever growing with a community of like-minded individuals with the simple goal of INCREASING their REVENUE through Trending Business Systems.<br><br>
 				     The community uses a STRUCTURED TEAM of SEASONED BUSINESS PROFESSIONALS with decades of experience in building Dream Revenue, to analyse and create simple business systems that work.
                             </p>
                         </div>

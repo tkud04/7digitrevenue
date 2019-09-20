@@ -211,8 +211,7 @@ class MainController extends Controller {
 		  $validator = Validator::make($req, [
                              'name' => 'required',
                              'email' => 'required|email',
-                             'phone' => 'numeric',
-                             'message' => 'required'
+                             'phone' => 'numeric'
          ]);
          
          if($validator->fails())
