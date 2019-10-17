@@ -251,7 +251,7 @@ class Helper implements HelperContract
 	{
 		$ret = "ok";
 		
-		$msg = "<h2 style='color: green;'>You have a new message!</h2><p>Name: <b>".$data['name']."</b></p><p>Email: <b>".$data['email']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><br><p>Message: <br><b>".$data['message']."</b></p><br><br><small>7DigitRevenue Postman</small>";
+		$msg = "<h2 style='color: green;'>You have a new message!</h2><p>Name: <b>".$data['name']."</b></p><p>Hear about 7DigitRevenue from: <b>".$data['hear']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><br><p>Message: <br><b>".$data['message']."</b></p><br><br><small>7DigitRevenue Postman</small>";
 		           $dt = [
 		                    'sn' => "7DigitRevenue Postman",
 		                    'sa' => "7DigitRevenue",

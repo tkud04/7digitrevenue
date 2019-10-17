@@ -177,6 +177,7 @@ class MainController extends Controller {
                              'name' => 'required',
                              'email' => 'required|email',
                              'subject' => 'required',
+                             'hear' => 'required',
                              'message' => 'required'
          ]);
          
@@ -188,6 +189,7 @@ class MainController extends Controller {
          
          else
          {
+			 if($req['hear'] == "none") $req['hear'] = "Not specified";
 			 $ret = $this->helpers->sendMessage($req);
 			 $request->session()->flash("send-message-status",$ret);
 			 return redirect()->intended('contact');

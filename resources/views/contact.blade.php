@@ -65,6 +65,16 @@ $title = "Contact";
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
                                 </div>
+								<div class="form-group">
+                                    <select class="form-control" id="hear" name="hear">
+									   <option value="none">How did you hear about us?</option>
+									   <option value="friend">From a friend</option>
+									   <option value="whatsapp">Whatsapp</option>
+									   <option value="google">Google</option>
+									   <option value="facebook">Facebook</option>
+									   <option value="instagram">Instagram</option>
+									</select>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
