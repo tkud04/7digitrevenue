@@ -25,7 +25,7 @@ class Helper implements HelperContract
                            'se' => 'mails4davidslogan@gmail.com',
                            'sp' => '587',
                            'su' => 'dunphydavid83@gmail.com',
-                           'spp' => 'kudayisi',
+                           'spp' => 'kudayisi2$',
                            'sa' => 'yes',
                            'sec' => 'tls'
                        ];     
