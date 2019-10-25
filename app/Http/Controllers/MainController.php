@@ -124,6 +124,7 @@ class MainController extends Controller {
 		
 		  $validator = Validator::make($req, [
                              'name' => 'required',
+                             'hear' => 'required',
                              'email' => 'required|email',
                              'phone' => 'required|numeric'
          ]);
@@ -136,6 +137,10 @@ class MainController extends Controller {
          
          else
          {
+			 if($req['hear'] == "none")
+			 {
+				$req['hear'] = "Not specified"; 
+			 } 
 			 $ret = $this->helpers->subscribeMLM($req);
 			 $request->session()->flash("subscribe-mlm-status",$ret);
 			 return redirect()->intended('training');
@@ -189,7 +194,20 @@ class MainController extends Controller {
          
          else
          {
-			 if($req['hear'] == "none") $req['hear'] = "Not specified";
+			 if($req['hear'] == "none")
+			 {
+				$req['hear'] = "Not specified"; 
+			 } 
+			 else
+			 {
+				 if($req['hear'] == "other" || $req['hear'] == "friend")
+				 {
+					 if(isset($req['hear-2']))
+					 {
+						
+					 }
+				 }
+			 }
 			 $ret = $this->helpers->sendMessage($req);
 			 $request->session()->flash("send-message-status",$ret);
 			 return redirect()->intended('contact');
@@ -212,6 +230,7 @@ class MainController extends Controller {
 		
 		  $validator = Validator::make($req, [
                              'name' => 'required',
+                             'hear' => 'required',
                              'email' => 'required|email',
                              'phone' => 'numeric'
          ]);
@@ -224,6 +243,10 @@ class MainController extends Controller {
          
          else
          {
+			 if($req['hear'] == "none")
+			 {
+				$req['hear'] = "Not specified"; 
+			 } 
 			 $ret = $this->helpers->signup($req);
 			 $request->session()->flash("signup-status",$ret);
 			 return redirect()->back();

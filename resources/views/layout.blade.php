@@ -118,6 +118,18 @@
                        <div class="form-group">
                           <input name="location" class="form-control" placeholder="Location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Location'" type="text">
                        </div>
+					   <div class="form-group">
+                                    <select class="form-control" id="hear" name="hear" style="margin-bottom: 6px;">
+									   <option value="none">How did you hear about us?</option>
+									   <option value="facebook">Facebook</option>
+									   <option value="twitter">Twitter</option>
+									   <option value="instagram">Instagram</option>
+									   <option value="email">Email</option>
+									   <option value="friend">Friend</option>
+									   <option value="other">Other</option>
+									</select><br>
+									<input type="text" class="form-control" id="hear-2" name="hear-2" placeholder="Name?">
+                                </div>
                        <div class="input-group">
                           <textarea name="message" class="form-control" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mesaage '" ></textarea>
                        </div>
@@ -240,5 +252,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Immer
 		}
 		?>
         <script src="js/theme.js"></script>
+        <script>
+		 //Add Deal - size
+$('#hear-2').hide();
+$('#hear').change(function(e){
+	e.preventDefault();
+	let hear = $('#hear').val();
+    
+	if(hear == "other" || hear == "friend"){
+		$('#hear-2').fadeIn();
+	}
+	else{
+		$('#hear-2').hide();
+	}	
+});
+		</script>
     </body>
 </html>

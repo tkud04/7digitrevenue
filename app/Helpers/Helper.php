@@ -231,8 +231,9 @@ class Helper implements HelperContract
 	function subscribeMLM($data)
 	{
 		$ret = "ok";
+		if(isset($data['hear-2'])) $h2 = $data['hear-2'];
 		
-		$msg = "<h2 style='color: green;'>New user just signed up for training in Network marketing!</h2><p>Name: <b>".$data['name']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><br><small>7DigitRevenue Postman</small>";
+		$msg = "<h2 style='color: green;'>New user just signed up for training in Network marketing!</h2><p>Name: <b>".$data['name']."</b></p><p>Heard about 7DigitRevenue via: <b>".$data['hear']."</b></p><br><p>Friend's name/other media: <b>".$data['hear-2']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><br><small>7DigitRevenue Postman</small>";
 		           $dt = [
 		                    'sn' => "7DigitRevenue Postman",
 		                    'sa' => "7DigitRevenue",
@@ -250,8 +251,10 @@ class Helper implements HelperContract
 	function sendMessage($data)
 	{
 		$ret = "ok";
-		
-		$msg = "<h2 style='color: green;'>You have a new message!</h2><p>Name: <b>".$data['name']."</b></p><p>Hear about 7DigitRevenue from: <b>".$data['hear']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><br><p>Message: <br><b>".$data['message']."</b></p><br><br><small>7DigitRevenue Postman</small>";
+		$h2 = "";
+		#dd($data);
+		if(isset($data['hear-2'])) $h2 = $data['hear-2'];
+		$msg = "<h2 style='color: green;'>You have a new message!</h2><p>Name: <b>".$data['name']."</b></p><p>Heard about 7DigitRevenue via: <b>".$data['hear']."</b></p><br><p>Friend's name/other media: <b>".$data['hear-2']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><br><p>Message: <br><b>".$data['message']."</b></p><br><br><small>7DigitRevenue Postman</small>";
 		           $dt = [
 		                    'sn' => "7DigitRevenue Postman",
 		                    'sa' => "7DigitRevenue",
@@ -276,8 +279,9 @@ class Helper implements HelperContract
 		$loc = "";
 		if(isset($data['message'])) $mesg = $data['message'];
 		if(isset($data['location'])) $loc = $data['location'];
+		if(isset($data['hear-2'])) $h2 = $data['hear-2'];
 		
-		$msg = "<h2 style='color: green;'>New user just signed up!</h2><p>Name: <b>".$data['name']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Location: <b>".$data['location']."</b></p><br><p>Message: <b>".$data['message']."</b></p><br><br><br><small>7DigitRevenue Postman</small>";
+		$msg = "<h2 style='color: green;'>New user just signed up!</h2><p>Name: <b>".$data['name']."</b></p><p>Heard about 7DigitRevenue via: <b>".$data['hear']."</b></p><br><p>Friend's name/other media: <b>".$data['hear-2']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Phone: <b>".$data['phone']."</b></p><br><p>Email: <b>".$data['email']."</b></p><br><p>Location: <b>".$data['location']."</b></p><br><p>Message: <b>".$data['message']."</b></p><br><br><br><small>7DigitRevenue Postman</small>";
 		           $dt = [
 		                    'sn' => "7DigitRevenue Postman",
 		                    'sa' => "7DigitRevenue",

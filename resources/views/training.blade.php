@@ -40,6 +40,20 @@ $title = "How to Become Better at Network Marketing";
                                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number">
                                 </div>
                             </div>
+							<div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" id="hear" name="hear" style="margin-bottom: 6px;">
+									   <option value="none">How did you hear about us?</option>
+									   <option value="facebook">Facebook</option>
+									   <option value="twitter">Twitter</option>
+									   <option value="instagram">Instagram</option>
+									   <option value="email">Email</option>
+									   <option value="friend">Friend</option>
+									   <option value="other">Other</option>
+									</select><br>
+									<input type="text" class="form-control" id="hear-2" name="hear-2" placeholder="Name?">
+                                </div>
+							</div>
                             <div class="col-md-12 text-center">
                                 <button type="submit" value="submit" class="btn submit_btn yellow">Submit</button>
                             </div>

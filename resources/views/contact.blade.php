@@ -68,12 +68,14 @@ $title = "Contact";
 								<div class="form-group">
                                     <select class="form-control" id="hear" name="hear">
 									   <option value="none">How did you hear about us?</option>
-									   <option value="friend">From a friend</option>
-									   <option value="whatsapp">Whatsapp</option>
-									   <option value="google">Google</option>
 									   <option value="facebook">Facebook</option>
+									   <option value="twitter">Twitter</option>
 									   <option value="instagram">Instagram</option>
-									</select>
+									   <option value="email">Email</option>
+									   <option value="friend">Friend</option>
+									   <option value="other">Other</option>
+									</select><br>
+									<input type="text" class="form-control" id="hear-2" name="hear-2" placeholder="Name?">
                                 </div>
                             </div>
                             <div class="col-md-6">
